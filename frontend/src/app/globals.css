@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+    color: #ffffff;
+    background:
+      radial-gradient(ellipse 80% 70% at 15% 40%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 60% at 85% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 90% 80% at 50% 100%, rgba(37, 99, 235, 0.5) 0%, transparent 60%),
+      linear-gradient(135deg, #4fa3e0 0%, #3b82f6 30%, #2563eb 60%, #1d4ed8 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+
+  /* ── Glass Card ── */
+  .card {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  /* ── Input Field ── */
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 0.75rem;
+    color: #111827;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .input-field::placeholder {
+    color: rgba(0, 0, 0, 0.40);
+  }
+
+  .input-field:focus {
+    border-color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  }
+
+  /* ── Primary Button (black solid) ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: #111827;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: #1f2937;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ── Secondary Button (glass) ── */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.26);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* ── Danger Button ── */
+  .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: rgba(239, 68, 68, 0.75);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.9);
+  }
+
+  .btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ── Glass Badge ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+  }
+}
