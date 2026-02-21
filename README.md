@@ -102,18 +102,6 @@ npm install
 npm run dev            # starts on :3000
 ```
 
----
-
-## API Reference
-
-### Authentication
-
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| POST | `/api/auth/register` | — | Register new user |
-| POST | `/api/auth/login` | — | Login, receive JWT |
-| GET | `/api/auth/me` | Bearer | Get current user |
-
 **Register** `POST /api/auth/register`
 ```json
 // Request
@@ -133,16 +121,6 @@ npm run dev            # starts on :3000
 ```
 
 ---
-
-### Profile
-
-All routes require `Authorization: Bearer <token>`.
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/profile` | Get authenticated user's profile |
-| PUT | `/api/profile` | Update name / bio / avatar |
-| PUT | `/api/profile/password` | Change password |
 
 **Update Profile** `PUT /api/profile`
 ```json
@@ -176,30 +154,6 @@ All routes require `Authorization: Bearer <token>`.
 | PUT | `/api/tasks/:id` | Update task |
 | DELETE | `/api/tasks/:id` | Delete task |
 
-**Query Parameters for `GET /api/tasks`:**
-| Param | Type | Description |
-|-------|------|-------------|
-| `search` | string | Full-text search on title + description |
-| `status` | `todo` \| `in-progress` \| `done` | Filter by status |
-| `priority` | `low` \| `medium` \| `high` | Filter by priority |
-| `page` | number | Page number (default: 1) |
-| `limit` | number | Items per page (default: 20) |
-
-**Create Task** `POST /api/tasks`
-```json
-// Request
-{
-  "title": "Implement login page",
-  "description": "Use React Hook Form + Zod",
-  "status": "in-progress",
-  "priority": "high",
-  "dueDate": "2024-03-01"
-}
-
-// Response 201
-{ "message": "Task created.", "task": { "_id": "...", "title": "...", ... } }
-```
-
 ---
 
 ## Security Practices
@@ -232,8 +186,23 @@ All routes require `Authorization: Bearer <token>`.
 
 7. **Rate limiting** — Add `express-rate-limit` on auth routes to prevent brute-force attacks.
 
-8. **CI/CD** — Docker-compose for local dev; separate Dockerfiles for frontend and backend. Deploy to Kubernetes or Railway/Render for production.
+9. **CI/CD** — Docker-compose for local dev; separate Dockerfiles for frontend and backend. Deploy to Kubernetes or Railway/Render for production.
 
-9. **Monitoring** — Integrate Sentry for error tracking; Prometheus + Grafana for metrics.
+10. **Monitoring** — Integrate Sentry for error tracking; Prometheus + Grafana for metrics.
 
-10. **Token rotation** — Implement refresh tokens stored in `HttpOnly` cookies to reduce access token lifetime to 15 minutes while keeping UX seamless.
+11. **Token rotation** — Implement refresh tokens stored in `HttpOnly` cookies to reduce access token lifetime to 15 minutes while keeping UX seamless.
+
+---
+
+## Screenshots
+
+<img width="1919" height="930" alt="image" src="https://github.com/user-attachments/assets/d05ccada-11f4-41aa-8d57-f7a18be0b9dd" />
+<img width="1919" height="933" alt="image" src="https://github.com/user-attachments/assets/952517d3-4bd7-4546-81c1-53de119c3123" />
+<img width="1919" height="930" alt="image" src="https://github.com/user-attachments/assets/8f30eb7e-9915-4165-a858-a489998363e8" />
+<img width="1919" height="928" alt="image" src="https://github.com/user-attachments/assets/a6fdd0ea-fa5f-4025-9ebe-660791374064" />
+<img width="1919" height="931" alt="image" src="https://github.com/user-attachments/assets/3ba09078-4702-438f-a343-959295d467cb" />
+
+
+
+
+
